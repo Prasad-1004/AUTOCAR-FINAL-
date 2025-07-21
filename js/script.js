@@ -206,30 +206,62 @@ mobileMenu.addEventListener("touchend", function (e) {
   }
 });
 
+// Swiper JS
 
 
 
 
+// Wait for DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Swiper
+  const swiper = new Swiper(".testimonials-swiper", {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 30,
+    centeredSlides: false,
+    loop: true,
 
+    // Pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
 
+    // Autoplay
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
 
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 576px
+      576: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      // when window width is >= 768px
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      // when window width is >= 992px
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      // when window width is >= 1200px
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+    },
 
+    // Effect
+    effect: "slide",
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Speed
+    speed: 800,
+  });
+});

@@ -231,8 +231,110 @@ mobileMenu.addEventListener("touchend", function (e) {
 
 
 
+// Sidebar & Main Section
 
 
+function toggleSidebar() {
+    const sidebar = document.getElementById('mobileSidebar');
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
+
+    sidebar.classList.toggle('show');
+    overlay.classList.toggle('show');
+
+    if (sidebar.classList.contains('show')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  }
+
+  function toggleBrands() {
+    const brandList = document.getElementById('brand-list') || document.getElementById('brand-list-mobile');
+    const items = ['BrandX', 'BrandY', 'BrandZ'];
+    items.forEach(name => {
+      const div = document.createElement('div');
+      div.innerHTML = `<input type="checkbox"> ${name}`;
+      brandList.appendChild(div);
+    });
+  }
+
+  function toggleSection(sectionId) {
+    const content = document.getElementById(sectionId);
+    const arrow = document.getElementById(sectionId + '-arrow');
+    
+    if (content.classList.contains('collapsed')) {
+      content.classList.remove('collapsed');
+      arrow.classList.remove('rotated');
+    } else {
+      content.classList.add('collapsed');
+      arrow.classList.add('rotated');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Testimonial Section
+
+
+
+ const swiper = new Swiper('.brand-slider', {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+    },
+    speed: 1000,
+    breakpoints: {
+      0: { slidesPerView: 2 },
+      576: { slidesPerView: 3 },
+      768: { slidesPerView: 4 },
+      992: { slidesPerView: 5 },
+      1200: { slidesPerView: 6 }
+    }
+  });
+
+  // Pause on hover
+  document.querySelectorAll('.brand-slide').forEach(slide => {
+    slide.addEventListener('mouseenter', () => swiper.autoplay.stop());
+    slide.addEventListener('mouseleave', () => swiper.autoplay.start());
+  });
+
+  // Optional: Pause on touch (mobile tap)
+  document.querySelectorAll('.brand-slide').forEach(slide => {
+    slide.addEventListener('touchstart', () => swiper.autoplay.stop(), { passive: true });
+    slide.addEventListener('touchend', () => swiper.autoplay.start(), { passive: true });
+  });
 
 
 

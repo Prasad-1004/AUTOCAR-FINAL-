@@ -857,14 +857,32 @@ body {
   padding: 40px 30px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 53, 69, 0.08), transparent);
+  transition: left 0.6s ease;
 }
 
 .achievement-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.achievement-card:hover::before {
+  left: 100%;
 }
 
 .achievement-icon {
@@ -877,6 +895,17 @@ body {
   justify-content: center;
   font-size: 24px;
   color: white;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+  transform: rotate(10deg) scale(1.15);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.achievement-card:hover .achievement-icon img {
+  transform: rotate(-10deg);
+  filter: brightness(1.1);
 }
 
 .achievement-number {
@@ -885,6 +914,13 @@ body {
   color: #2c3e50;
   margin-bottom: 10px;
   line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-number {
+  color: #dc3545;
+  transform: scale(1.1);
+  text-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
 }
 
 .achievement-title {
@@ -892,6 +928,12 @@ body {
   font-weight: 600;
   color: #2c3e50;
   margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-title {
+  color: #dc3545;
+  transform: translateY(-2px);
 }
 
 .achievement-description {
@@ -899,6 +941,12 @@ body {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 0;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-description {
+  color: #495057;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -913,7 +961,12 @@ body {
   .achievements-section {
     padding: 60px 0;
   }
+  
+  .achievement-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
 }
+
 
 /* Location Section */
 

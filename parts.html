@@ -19,6 +19,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
+
+    <!-- SwiperJS CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./css/parts.css" />
   </head>
 
@@ -474,529 +480,408 @@
         <!-- Header Section -->
         <div class="header-section">
           <div class="container-fluid">
+            <h4>Products</h4>
             <h3>Products from our store</h3>
           </div>
         </div>
 
-        <div class="container-fluid">
-          <div class="main-wrapper">
-            <!-- Sidebar -->
-            <div class="sidebar" id="sidebar">
-              <button class="close-sidebar" onclick="closeSidebar()">
-                <i class="fas fa-times"></i>
+        <!-- Filter Button -->
+        <div class="container mt-3">
+          <button
+            class="btn btn-outline-dark filter-toggle"
+            onclick="toggleSidebar()"
+          >
+            ☰ Filter
+          </button>
+        </div>
+
+        <!-- Sidebar Offcanvas -->
+        <div class="sidebar-wrapper" id="mobileSidebar">
+          <h5 class="d-flex justify-content-between align-items-center">
+            Filters
+            <button class="btn-close" onclick="toggleSidebar()">&times;</button>
+          </h5>
+          <hr />
+          <div class="mb-3">
+            <div
+              class="collapsible-header"
+              onclick="toggleSection('categories-mobile')"
+            >
+              <strong>Categories</strong>
+              <span class="arrow" id="categories-mobile-arrow">▼</span>
+            </div>
+            <div class="collapsible-content" id="categories-mobile">
+              <ul class="list-unstyled">
+                <li>Vehicle Mats</li>
+                <li>Tyre and Wheel</li>
+                <li>Car Dashboard Acc...</li>
+                <li>Vehicle Cleaners</li>
+                <li>Vehicle Styling</li>
+                <li><a href="#">Show 7 more</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mb-3">
+            <strong>Price</strong>
+            <select class="form-select my-2">
+              <option>Min</option>
+            </select>
+            <select class="form-select">
+              <option>To $20</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <div
+              class="collapsible-header"
+              onclick="toggleSection('brand-mobile')"
+            >
+              <strong>Brand</strong>
+              <span class="arrow" id="brand-mobile-arrow">▼</span>
+            </div>
+            <div class="collapsible-content" id="brand-mobile">
+              <input
+                type="text"
+                class="form-control my-2"
+                placeholder="Search Brand"
+              />
+              <div id="brand-list-mobile">
+                <div><input type="checkbox" /> Ronish</div>
+                <div><input type="checkbox" /> Otoroys</div>
+                <div><input type="checkbox" /> Monolive</div>
+                <div><input type="checkbox" /> Autograph</div>
+                <div><input type="checkbox" /> Agora</div>
+              </div>
+              <button class="btn btn-link mt-1" onclick="toggleBrands()">
+                View More
               </button>
+            </div>
+          </div>
+        </div>
 
-              <div class="sidebar-content">
+        <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+        <div class="container-fluid my-4">
+          <!-- Search Filters -->
+          <div class="search-filters">
+            <div>
+              <select class="form-select">
+                <option>Select Brand</option>
+              </select>
+            </div>
+            <div>
+              <select class="form-select">
+                <option>Select Model</option>
+              </select>
+            </div>
+            <div>
+              <select class="form-select">
+                <option>Set Price Range</option>
+              </select>
+            </div>
+            <div>
+              <button class="btn btn-danger w-100">Search</button>
+            </div>
+          </div>
+
+          <!-- Main Layout -->
+          <div class="main-layout">
+            <!-- Sidebar for Large Screens -->
+            <div class="sidebar-column">
+              <div class="sidebar">
                 <h5>Filters</h5>
-
-                <!-- Category Filter -->
-                <!-- <div class="filter-group">
-                  <h6>Category</h6>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="accessories"
-                      checked
-                    />
-                    <label class="form-check-label" for="accessories"
-                      >Automotive Accessories</label
-                    >
-                    <i class="fas fa-chevron-down chevron"></i>
-                  </div>
-                </div> -->
-
-                <div class="filter-section">
-                  <button
-                    class="filter-section-header"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#categoriesContent"
-                  >
-                    Categories
-                    <i class="fas fa-chevron-down chevron"></i>
-                  </button>
+                <hr />
+                <div class="mb-3">
                   <div
-                    class="collapse show filter-content"
-                    id="categoriesContent"
+                    class="collapsible-header"
+                    onclick="toggleSection('categories-desktop')"
                   >
-                    <div class="sub-category active">
-                      Automotive Accessories
+                    <strong>Categories</strong>
+                    <span class="arrow" id="categories-desktop-arrow">▼</span>
+                  </div>
+                  <div class="collapsible-content" id="categories-desktop">
+                    <ul class="list-unstyled">
+                      <li>Vehicle Mats</li>
+                      <li>Tyre and Wheel</li>
+                      <li>Car Dashboard Acc...</li>
+                      <li>Vehicle Cleaners</li>
+                      <li>Vehicle Styling</li>
+                      <li><a href="#">Show 7 more</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <strong>Price</strong>
+                  <select class="form-select my-2">
+                    <option>Min</option>
+                  </select>
+                  <select class="form-select">
+                    <option>To $20</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <div
+                    class="collapsible-header"
+                    onclick="toggleSection('brand-desktop')"
+                  >
+                    <strong>Brand</strong>
+                    <span class="arrow" id="brand-desktop-arrow">▼</span>
+                  </div>
+                  <div class="collapsible-content" id="brand-desktop">
+                    <input
+                      type="text"
+                      class="form-control my-2"
+                      placeholder="Search Brand"
+                    />
+                    <div id="brand-list">
+                      <div><input type="checkbox" /> Ronish</div>
+                      <div><input type="checkbox" /> Otoroys</div>
+                      <div><input type="checkbox" /> Monolive</div>
+                      <div><input type="checkbox" /> Autograph</div>
+                      <div><input type="checkbox" /> Agora</div>
                     </div>
-                    <div class="sub-category">Vehicle Mats</div>
-                    <div class="sub-category">Tyre and Wheel</div>
-                    <div class="sub-category">Car Dashboard Acc...</div>
-                    <div class="sub-category">Vehicle Cleaners</div>
-                    <div class="sub-category">Vehicle Styling</div>
-                    <button class="view-more-btn">Show 7 more</button>
-                  </div>
-                </div>
-
-                <!-- Type Filter -->
-                <div class="filter-group">
-                  <h6>Type</h6>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="tires"
-                    />
-                    <label class="form-check-label" for="tires"
-                      >Tires and Wheels</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="interior"
-                    />
-                    <label class="form-check-label" for="interior"
-                      >Interior Accessories</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="cleaning"
-                    />
-                    <label class="form-check-label" for="cleaning"
-                      >Vehicle Cleaning</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="exterior"
-                    />
-                    <label class="form-check-label" for="exterior"
-                      >Exterior Parts</label
-                    >
-                  </div>
-                  <a href="#" class="text-link">Show more</a>
-                </div>
-
-                <!-- Price Filter -->
-                <div class="filter-group">
-                  <h6>Price</h6>
-                  <i class="fas fa-chevron-down chevron"></i>
-                  <div class="price-range">
-                    <input
-                      type="number"
-                      class="price-input"
-                      placeholder="Min"
-                      value="50"
-                    />
-                    <span class="price-separator">to</span>
-                    <input
-                      type="number"
-                      class="price-input"
-                      placeholder="Max"
-                      value="500"
-                    />
-                  </div>
-                </div>
-
-                <!-- Brand Filter -->
-                <div class="filter-group">
-                  <h6>Brand</h6>
-                  <i class="fas fa-chevron-down chevron"></i>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="brembo"
-                      checked
-                    />
-                    <label class="form-check-label" for="brembo">Brembo</label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="michelin"
-                    />
-                    <label class="form-check-label" for="michelin"
-                      >Michelin</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="bosch"
-                    />
-                    <label class="form-check-label" for="bosch">Bosch</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="kn" />
-                    <label class="form-check-label" for="kn">K&N</label>
-                  </div>
-                  <a href="#" class="text-link">View More</a>
-                </div>
-
-                <!-- Customer Ratings Filter -->
-                <div class="filter-group">
-                  <h6>Customer Ratings</h6>
-                  <i class="fas fa-chevron-down chevron"></i>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="rating4"
-                    />
-                    <label class="form-check-label" for="rating4"
-                      >4 stars & above</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="rating3"
-                    />
-                    <label class="form-check-label" for="rating3"
-                      >3 stars & above</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="rating2"
-                    />
-                    <label class="form-check-label" for="rating2"
-                      >2 stars & above</label
-                    >
-                  </div>
-                </div>
-
-                <!-- Discount Filter -->
-                <div class="filter-group">
-                  <h6>Discount</h6>
-                  <i class="fas fa-chevron-down chevron"></i>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="discount10"
-                    />
-                    <label class="form-check-label" for="discount10"
-                      >10% or more</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="discount25"
-                    />
-                    <label class="form-check-label" for="discount25"
-                      >25% or more</label
-                    >
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="discount50"
-                    />
-                    <label class="form-check-label" for="discount50"
-                      >50% or more</label
-                    >
+                    <button class="btn btn-link mt-1" onclick="toggleBrands()">
+                      View More
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="main-content">
-              <!-- Toggle Button for Mobile -->
-              <button class="sidebar-toggle" onclick="openSidebar()">
-                <i class="fas fa-filter"></i>
-                <span>Filters</span>
-              </button>
-
-              <!-- Products Container using Flexbox -->
+            <!-- Product Grid -->
+            <div class="content-column">
               <div class="products-container">
-                <!-- Product 1 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop"
-                      alt="19 Inch Car Wheels"
+                      src="./assets/parts/image (10).png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">19 Inch Car Wheels</div>
-                      <div class="product-price">$299.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">27 CM Car Wheels</h6>
+                    <p><strong>$230.00</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
+                  </div>
+                </div>
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="./assets/parts/image (11).png"
+                      class="product-image"
+                      alt=""
+                    />
+                    <h6 class="mt-2">Car Steering Black</h6>
+                    <p><strong>$95.00</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
+                  </div>
+                </div>
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="./assets/parts/image (4).png"
+                      class="product-image"
+                      alt=""
+                    />
+                    <h6 class="mt-2">Dashboard Camera</h6>
+                    <p><strong>$149.99</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
+                  </div>
+                </div>
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="./assets/parts/image (6).png"
+                      class="product-image"
+                      alt=""
+                    />
+                    <h6 class="mt-2">Floor Mats Set</h6>
+                    <p><strong>$79.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
+                  </div>
+                </div>
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="./assets/parts/image (7).png"
+                      class="product-image"
+                      alt=""
+                    />
+                    <h6 class="mt-2">Car Polish Kit</h6>
+                    <p><strong>$34.50</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
+                  </div>
+                </div>
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="./assets/parts/image (8).png"
+                      class="product-image"
+                      alt=""
+                    />
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
 
-                <!-- Product 2 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=200&fit=crop"
-                      alt="Car Steering Wheel"
+                      src="./assets/parts/image (9).png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">Car Steering Wheel</div>
-                      <div class="product-price">$95.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
 
-                <!-- Product 3 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=200&fit=crop"
-                      alt="Alloy Rim Disk Brake"
+                      src="./assets/parts/mechanic-changing-brake-discs-car-service-8869.png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">Alloy Rim Disk Brake</div>
-                      <div class="product-price">$180.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
 
-                <!-- Product 4 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1486326658981-ed68abe5868e?w=400&h=200&fit=crop"
-                      alt="Aluminum Spark Plug"
+                      src="./assets/parts/pexels-photo-195635.png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">Aluminum Spark Plug</div>
-                      <div class="product-price">$35.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
 
-                <!-- Product 5 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=200&fit=crop"
-                      alt="Car Steering Rack"
+                      src="./assets/parts/pexels-photo-3689534.png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">Car Steering Rack</div>
-                      <div class="product-price">$85.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
 
-                <!-- Product 6 -->
                 <div class="product-item">
                   <div class="product-card">
                     <img
-                      src="https://images.unsplash.com/photo-1580414155951-5de57fc05cd8?w=400&h=200&fit=crop"
-                      alt="Alloy Air Filter"
+                      src="./assets/parts/unnamed-2-512x313.png"
                       class="product-image"
+                      alt=""
                     />
-                    <div class="product-info">
-                      <div class="product-title">Alloy Air Filter</div>
-                      <div class="product-price">$65.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 7 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
-                      alt="Alloy Brake pad Auto"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Alloy Brake pad Auto</div>
-                      <div class="product-price">$68.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 8 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
-                      alt="Car Spark Plug Set"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Car Spark Plug Set</div>
-                      <div class="product-price">$58.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 9 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
-                      alt="Car Speaker and Set"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Car Speaker and Set</div>
-                      <div class="product-price">$58.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 10 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1486326658981-ed68abe5868e?w=400&h=200&fit=crop"
-                      alt="Alloy Brakes Land 2.5m"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Alloy Brakes Land 2.5m</div>
-                      <div class="product-price">$65.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 11 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
-                      alt="Car Spark Plug"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Car Spark Plug</div>
-                      <div class="product-price">$58.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 12 -->
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
-                      alt="Car Spark Plug"
-                      class="product-image"
-                    />
-                    <div class="product-info">
-                      <div class="product-title">Car Spark Plug</div>
-                      <div class="product-price">$58.00</div>
-                      <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                      </div>
-                      <button class="btn-view-details">View Details</button>
-                    </div>
+                    <h6 class="mt-2">LED Headlights</h6>
+                    <p><strong>$189.99</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <button class="btn add-to-cart w-100 mb-1">
+                      Add to Cart
+                    </button>
+                    <button class="btn view-details w-100">View Details</button>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Company Testimonial Section -->
+
+    <section class="py-5 bg-light text-center">
+      <div class="container">
+        <h2 class="fw-bold mb-2">
+          We Repair All Makes of <span class="text-danger">Automobiles</span>
+        </h2>
+        <p class="text-muted mb-4">
+          Lorem ipsum dolor sit amet consectetur. Cras sed et in. At placerat.
+        </p>
+
+        <!-- Swiper -->
+        <div class="swiper brand-slider">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.porsche.com" target="_blank">
+                <img src="./assets/service/image 13.png" alt="Porsche" />
+              </a>
+            </div>
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.volkswagen.com" target="_blank">
+                <img src="./assets/service/image 14.png" alt="Volkswagen" />
+              </a>
+            </div>
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.bmw.com" target="_blank">
+                <img src="./assets/service/image 15.png" alt="BMW" />
+              </a>
+            </div>
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.Hyundai.com" target="_blank">
+                <img src="./assets/service/image 16.png" alt="Hyundai" />
+              </a>
+            </div>
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.audi.com" target="_blank">
+                <img src="./assets/service/image 17.png" alt="Audi" />
+              </a>
+            </div>
+            <div class="swiper-slide brand-slide">
+              <a href="https://www.Mercedes-Benz.com" target="_blank">
+                <img src="./assets/service/image 18.png" alt="Mercedes-Benz" />
+              </a>
             </div>
           </div>
         </div>
@@ -1096,8 +981,8 @@
       </div>
     </footer>
 
-
-
+    <!-- SwiperJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="./js/parts.js"></script>

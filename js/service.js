@@ -208,5 +208,37 @@ mobileMenu.addEventListener("touchend", function (e) {
 
 
 
+// Testimonial Section
 
+
+
+ const swiper = new Swiper('.brand-slider', {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+    },
+    speed: 1000,
+    breakpoints: {
+      0: { slidesPerView: 2 },
+      576: { slidesPerView: 3 },
+      768: { slidesPerView: 4 },
+      992: { slidesPerView: 5 },
+      1200: { slidesPerView: 6 }
+    }
+  });
+
+  // Pause on hover
+  document.querySelectorAll('.brand-slide').forEach(slide => {
+    slide.addEventListener('mouseenter', () => swiper.autoplay.stop());
+    slide.addEventListener('mouseleave', () => swiper.autoplay.start());
+  });
+
+  // Optional: Pause on touch (mobile tap)
+  document.querySelectorAll('.brand-slide').forEach(slide => {
+    slide.addEventListener('touchstart', () => swiper.autoplay.stop(), { passive: true });
+    slide.addEventListener('touchend', () => swiper.autoplay.start(), { passive: true });
+  });
 

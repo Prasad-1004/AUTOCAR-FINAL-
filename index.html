@@ -14,6 +14,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -993,13 +1003,14 @@
                 <li><span class="check-icon"></span>Interior Cleaning</li>
               </ul>
 
-              <button class="subscribe-btn">Subscribe Now</button>
+              <button class="subscribes-btn">Subscribe Now</button>
             </div>
           </div>
 
           <!-- Standard Plan -->
           <div class="col-lg-4 col-md-6 mb-4 p-card">
-            <div class="plan-card">
+            <div class="plan-card popular">
+              <div class="popular-badge">Most Popular</div>
               <div class="plan-header">
                 <h3 class="plan-name">Standard Plan</h3>
                 <p class="plan-frequency">Bi-Monthly</p>
@@ -1015,7 +1026,7 @@
                 <li><span class="check-icon"></span>Brake Check</li>
               </ul>
 
-              <button class="subscribe-btn">Subscribe Now</button>
+              <button class="subscribes-btn">Subscribe Now</button>
             </div>
           </div>
 
@@ -1026,18 +1037,18 @@
                 <h3 class="plan-name">Premium Plan</h3>
                 <p class="plan-frequency">Monthly</p>
                 <div class="plan-price">
-                  $189<span class="price-period">/months</span>
+                  $189<span class="price-period">/month</span>
                 </div>
               </div>
 
               <ul class="features-list">
                 <li><span class="check-icon"></span>All Standard Features</li>
-                <li><span class="check-icon"></span>Free Pickup an Drop</li>
+                <li><span class="check-icon"></span>Free Pickup and Drop</li>
                 <li><span class="check-icon"></span>AC & Battery Check</li>
                 <li><span class="check-icon"></span>24x7 Support</li>
               </ul>
 
-              <button class="subscribe-btn">Subscribe Now</button>
+              <button class="subscribes-btn">Subscribe Now</button>
             </div>
           </div>
         </div>
@@ -1108,8 +1119,8 @@
           <h2 class="section-heading">What our clients say about us</h2>
         </div>
 
-        <div class="swiper testimonials-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper testimonials-swiper d-flex">
+          <div class="swiper-wrapper d-flex flex-row">
             <!-- Testimonial Card 1 -->
             <div class="swiper-slide">
               <div class="testimonial-card">
@@ -1271,16 +1282,15 @@
               </div>
             </div>
 
-            <!-- Additional testimonials for better loop on large screens -->
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&h=150&fit=crop&crop=face"
-                    alt="Jessica Miller"
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
                     class="client-avatar"
                   />
-                  <div class="client-name">Jessica Miller</div>
+                  <div class="client-name">Michael Brown</div>
                   <div class="client-role">Rider</div>
                   <div class="testimonial-text">
                     Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
@@ -1302,11 +1312,11 @@
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face"
-                    alt="Robert Wilson"
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
                     class="client-avatar"
                   />
-                  <div class="client-name">Robert Wilson</div>
+                  <div class="client-name">Michael Brown</div>
                   <div class="client-role">Rider</div>
                   <div class="testimonial-text">
                     Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
@@ -1328,11 +1338,37 @@
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=150&h=150&fit=crop&crop=face"
-                    alt="Amanda Davis"
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
                     class="client-avatar"
                   />
-                  <div class="client-name">Amanda Davis</div>
+                  <div class="client-name">Michael Brown</div>
+                  <div class="client-role">Rider</div>
+                  <div class="testimonial-text">
+                    Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
+                    velit vitae eget aliquam risus phasellus risus. Morbi eget
+                    semper.
+                  </div>
+                </div>
+                <div class="star-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
+                    class="client-avatar"
+                  />
+                  <div class="client-name">Michael Brown</div>
                   <div class="client-role">Rider</div>
                   <div class="testimonial-text">
                     Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
@@ -1350,10 +1386,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Navigation buttons -->
-          <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
 
           <!-- Pagination -->
           <div class="swiper-pagination"></div>
@@ -1495,67 +1527,19 @@
       </div>
     </footer>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+
     <script>
-      // Initialize Swiper
-     
-      const swiper = new Swiper(".testimonials-swiper", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    // When window width is >= 576px
-    576: {
-      slidesPerView: 2,
-      spaceBetween: 20
-    },
-    // When window width is >= 992px
-    992: {
-      slidesPerView: 3,
-      spaceBetween: 30
-    },
-    // When window width is >= 1200px
-    1200: {
-      slidesPerView: 4,
-      spaceBetween: 30
-    }
-  }
-});
-
-
-
-
-
-
-      // Additional fallback to ensure continuous autoplay
-      let autoplayFallback = setInterval(() => {
-        if (swiper && !swiper.autoplay.running && !swiper.destroyed) {
-          swiper.autoplay.start();
-        }
-      }, 5000);
-
-      // Clear fallback when page is hidden/unloaded
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          clearInterval(autoplayFallback);
-        } else {
-          autoplayFallback = setInterval(() => {
-            if (swiper && !swiper.autoplay.running && !swiper.destroyed) {
-              swiper.autoplay.start();
-            }
-          }, 5000);
-        }
-      });
+      
     </script>
+
+
+
   </body>
 </html>
