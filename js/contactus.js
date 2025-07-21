@@ -1,3 +1,76 @@
+// Add smooth scrolling and interactive effects
+document.addEventListener("DOMContentLoaded", function () {
+  // Animate contact items on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, observerOptions);
+
+  // Observe all contact items
+  document.querySelectorAll(".address-item").forEach((item, index) => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(20px)";
+    item.style.transition = `opacity 0.6s ease ${
+      index * 0.1
+    }s, transform 0.6s ease ${index * 0.1}s`;
+    observer.observe(item);
+  });
+
+  // Copy email/phone functionality
+  document
+    .querySelectorAll('a[href^="mailto:"], a[href^="tel:"]')
+    .forEach((link) => {
+      link.addEventListener("click", function (e) {
+        const text = this.textContent;
+
+        // Try to copy to clipboard
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast("Copied to clipboard!");
+          });
+        }
+      });
+    });
+
+  // Toast notification function
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "toast-notification";
+    toast.textContent = message;
+    toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #28a745;
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    z-index: 9999;
+                    animation: slideIn 0.3s ease;
+                `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+});
+
+
+
+
+
+
 // Handle location selection
 document.addEventListener("DOMContentLoaded", function () {
   const locationCards = document.querySelectorAll(".location-card");

@@ -210,26 +210,3 @@ mobileMenu.addEventListener("touchend", function (e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

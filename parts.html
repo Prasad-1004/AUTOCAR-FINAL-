@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/parts.css" />
+  </head>
+
+  <body>
+    <header class="custom-header">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 col-md-7">
+              <div class="contact-info">
+                <div class="contact-item">
+                  <div class="image">
+                    <img
+                      src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>"
+                      alt="email"
+                    />
+                  </div>
+                  <div class="info"><span>Email:</span> AutocarX@gmail.com</div>
+                </div>
+                <div class="contact-item">
+                  <div class="image">
+                    <img
+                      src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'><path d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/></svg>"
+                      alt="phone"
+                    />
+                  </div>
+                  <div class="info"><span>Phone:</span> +91-7668860145</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+              <div
+                class="location d-flex justify-content-md-end justify-content-center"
+                data-bs-toggle="modal"
+                data-bs-target="#locationModal"
+              >
+                <div class="image">
+                  <img
+                    src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>"
+                    alt="location"
+                  />
+                </div>
+                <div class="info">
+                  <span>Location:</span>
+                  <span id="selectedLocation">Los Angeles</span>
+                </div>
+                <i class="bi bi-chevron-down dropdown-arrow"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation Bar -->
+
+      <nav class="navbar navbar-expand-lg custom-nav">
+        <div class="container">
+          <!-- Logo -->
+          <div class="nav-logo">
+            <a class="logo" href="./index.html">
+              <img src="./assets/homepage/Group 6.png" alt="" />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="desktop-nav d-none d-lg-flex">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./parts.html">Spare Parts</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./contactus.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Desktop Action Buttons -->
+          <div class="desktop-actions d-none d-lg-flex">
+            <div class="nav-buttons">
+              <button class="btn-icon btn-search" title="Search">
+                <i class="bi bi-search"></i>
+              </button>
+              <button class="btn-icon btn-cart" title="Cart">
+                <i class="bi bi-cart3"></i>
+              </button>
+              <a
+                href="#"
+                class="btn-login"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                >Log in</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <div class="hamburger d-lg-none" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="container">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./service.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./parts.html">Spare Parts</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="./contactus.html">Contact</a>
+              </li>
+            </ul>
+            <div class="nav-buttons">
+              <button class="btn-icon btn-search" title="Search">
+                <i class="bi bi-search"></i>
+              </button>
+              <button class="btn-icon btn-cart" title="Cart">
+                <i class="bi bi-cart3"></i>
+              </button>
+              <a
+                href="#"
+                class="btn-login"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                >Log in</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+              <p class="modal-subtitle">
+                How to get started lorem ipsum dolor at?
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm">
+              <div class="form-group">
+                <!-- <label for="username" class="form-label"
+                  >User Name<span class="required">*</span></label
+                > -->
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="User Name*"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <!-- <label for="password" class="form-label"
+                  >Password<span class="required">*</span></label
+                > -->
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+                <div class="forgot-password">
+                  <a href="#" id="forgotPasswordLink">Forget Password?</a>
+                </div>
+              </div>
+              <button type="submit" class="btn-login-modal">Log In</button>
+            </form>
+
+            <div class="divider">
+              <span>Or</span>
+            </div>
+
+            <button class="social-btn" id="googleLogin">
+              <span class="google-icon"></span>
+              Login with Google
+            </button>
+
+            <button class="social-btn" id="facebookLogin">
+              <i class="bi bi-facebook facebook-icon"></i>
+              Login with Facebook
+            </button>
+
+            <div class="signup-link">
+              Don't have an account? <a href="#" id="showSignup">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div
+      class="modal fade"
+      id="signupModal"
+      tabindex="-1"
+      aria-labelledby="signupModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+              <p class="modal-subtitle">Create your account to get started</p>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="signupForm">
+              <div class="form-group">
+                <label for="signupFullName" class="form-label"
+                  >Full Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="signupFullName"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupEmail" class="form-label"
+                  >Email Address<span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="signupEmail"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupUsername" class="form-label"
+                  >User Name<span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="signupUsername"
+                  placeholder="Choose a username"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupPassword" class="form-label"
+                  >Password<span class="required">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="signupPassword"
+                  placeholder="Create a password"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword" class="form-label"
+                  >Confirm Password<span class="required">*</span></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn-login-modal">Sign Up</button>
+            </form>
+
+            <div class="divider">
+              <span>Or</span>
+            </div>
+
+            <button class="social-btn" id="googleSignup">
+              <span class="google-icon"></span>
+              Sign up with Google
+            </button>
+
+            <button class="social-btn" id="facebookSignup">
+              <i class="bi bi-facebook facebook-icon"></i>
+              Sign up with Facebook
+            </button>
+
+            <div class="terms-text">
+              By signing up, you agree to our
+              <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="signup-link">
+              Already have an account? <a href="#" id="showLogin">Log In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Selection Modal -->
+    <div
+      class="modal fade location-modal"
+      id="locationModal"
+      tabindex="-1"
+      aria-labelledby="locationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="locationModalLabel">
+              Choose Your Location
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="location-grid">
+              <div
+                class="location-card location-los-angeles"
+                data-location="Los Angeles"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Los Angeles</h6>
+                </div>
+              </div>
+
+              <div
+                class="location-card location-las-vegas"
+                data-location="Las Vegas"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Las Vegas</h6>
+                </div>
+              </div>
+
+              <div class="location-card location-miami" data-location="Miami">
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Miami</h6>
+                </div>
+              </div>
+
+              <div
+                class="location-card location-san-francisco"
+                data-location="San Francisco"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">San Francisco</h6>
+                </div>
+              </div>
+
+              <div
+                class="location-card location-washington"
+                data-location="Washington"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Washington</h6>
+                </div>
+              </div>
+
+              <div
+                class="location-card location-new-york"
+                data-location="New York"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">New York</h6>
+                </div>
+              </div>
+
+              <div
+                class="location-card location-lockdown"
+                data-location="Lockdown"
+              >
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Lockdown</h6>
+                </div>
+              </div>
+
+              <div class="location-card location-boat" data-location="Boat">
+                <div class="location-card-content">
+                  <h6 class="location-card-title">Boat</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1>Spare Parts</h1>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+
+    <section class="product-section">
+      <div class="container">
+        <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+        <!-- Header Section -->
+        <div class="header-section">
+          <div class="container-fluid">
+            <h3>Products from our store</h3>
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <div class="main-wrapper">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+              <button class="close-sidebar" onclick="closeSidebar()">
+                <i class="fas fa-times"></i>
+              </button>
+
+              <div class="sidebar-content">
+                <h5>Filters</h5>
+
+                <!-- Category Filter -->
+                <!-- <div class="filter-group">
+                  <h6>Category</h6>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="accessories"
+                      checked
+                    />
+                    <label class="form-check-label" for="accessories"
+                      >Automotive Accessories</label
+                    >
+                    <i class="fas fa-chevron-down chevron"></i>
+                  </div>
+                </div> -->
+
+                <div class="filter-section">
+                  <button
+                    class="filter-section-header"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#categoriesContent"
+                  >
+                    Categories
+                    <i class="fas fa-chevron-down chevron"></i>
+                  </button>
+                  <div
+                    class="collapse show filter-content"
+                    id="categoriesContent"
+                  >
+                    <div class="sub-category active">
+                      Automotive Accessories
+                    </div>
+                    <div class="sub-category">Vehicle Mats</div>
+                    <div class="sub-category">Tyre and Wheel</div>
+                    <div class="sub-category">Car Dashboard Acc...</div>
+                    <div class="sub-category">Vehicle Cleaners</div>
+                    <div class="sub-category">Vehicle Styling</div>
+                    <button class="view-more-btn">Show 7 more</button>
+                  </div>
+                </div>
+
+                <!-- Type Filter -->
+                <div class="filter-group">
+                  <h6>Type</h6>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="tires"
+                    />
+                    <label class="form-check-label" for="tires"
+                      >Tires and Wheels</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="interior"
+                    />
+                    <label class="form-check-label" for="interior"
+                      >Interior Accessories</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="cleaning"
+                    />
+                    <label class="form-check-label" for="cleaning"
+                      >Vehicle Cleaning</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="exterior"
+                    />
+                    <label class="form-check-label" for="exterior"
+                      >Exterior Parts</label
+                    >
+                  </div>
+                  <a href="#" class="text-link">Show more</a>
+                </div>
+
+                <!-- Price Filter -->
+                <div class="filter-group">
+                  <h6>Price</h6>
+                  <i class="fas fa-chevron-down chevron"></i>
+                  <div class="price-range">
+                    <input
+                      type="number"
+                      class="price-input"
+                      placeholder="Min"
+                      value="50"
+                    />
+                    <span class="price-separator">to</span>
+                    <input
+                      type="number"
+                      class="price-input"
+                      placeholder="Max"
+                      value="500"
+                    />
+                  </div>
+                </div>
+
+                <!-- Brand Filter -->
+                <div class="filter-group">
+                  <h6>Brand</h6>
+                  <i class="fas fa-chevron-down chevron"></i>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="brembo"
+                      checked
+                    />
+                    <label class="form-check-label" for="brembo">Brembo</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="michelin"
+                    />
+                    <label class="form-check-label" for="michelin"
+                      >Michelin</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="bosch"
+                    />
+                    <label class="form-check-label" for="bosch">Bosch</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="kn" />
+                    <label class="form-check-label" for="kn">K&N</label>
+                  </div>
+                  <a href="#" class="text-link">View More</a>
+                </div>
+
+                <!-- Customer Ratings Filter -->
+                <div class="filter-group">
+                  <h6>Customer Ratings</h6>
+                  <i class="fas fa-chevron-down chevron"></i>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rating4"
+                    />
+                    <label class="form-check-label" for="rating4"
+                      >4 stars & above</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rating3"
+                    />
+                    <label class="form-check-label" for="rating3"
+                      >3 stars & above</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="rating2"
+                    />
+                    <label class="form-check-label" for="rating2"
+                      >2 stars & above</label
+                    >
+                  </div>
+                </div>
+
+                <!-- Discount Filter -->
+                <div class="filter-group">
+                  <h6>Discount</h6>
+                  <i class="fas fa-chevron-down chevron"></i>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="discount10"
+                    />
+                    <label class="form-check-label" for="discount10"
+                      >10% or more</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="discount25"
+                    />
+                    <label class="form-check-label" for="discount25"
+                      >25% or more</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="discount50"
+                    />
+                    <label class="form-check-label" for="discount50"
+                      >50% or more</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+              <!-- Toggle Button for Mobile -->
+              <button class="sidebar-toggle" onclick="openSidebar()">
+                <i class="fas fa-filter"></i>
+                <span>Filters</span>
+              </button>
+
+              <!-- Products Container using Flexbox -->
+              <div class="products-container">
+                <!-- Product 1 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop"
+                      alt="19 Inch Car Wheels"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">19 Inch Car Wheels</div>
+                      <div class="product-price">$299.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=200&fit=crop"
+                      alt="Car Steering Wheel"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Steering Wheel</div>
+                      <div class="product-price">$95.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=200&fit=crop"
+                      alt="Alloy Rim Disk Brake"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Alloy Rim Disk Brake</div>
+                      <div class="product-price">$180.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1486326658981-ed68abe5868e?w=400&h=200&fit=crop"
+                      alt="Aluminum Spark Plug"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Aluminum Spark Plug</div>
+                      <div class="product-price">$35.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=200&fit=crop"
+                      alt="Car Steering Rack"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Steering Rack</div>
+                      <div class="product-price">$85.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1580414155951-5de57fc05cd8?w=400&h=200&fit=crop"
+                      alt="Alloy Air Filter"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Alloy Air Filter</div>
+                      <div class="product-price">$65.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
+                      alt="Alloy Brake pad Auto"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Alloy Brake pad Auto</div>
+                      <div class="product-price">$68.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
+                      alt="Car Spark Plug Set"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Spark Plug Set</div>
+                      <div class="product-price">$58.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
+                      alt="Car Speaker and Set"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Speaker and Set</div>
+                      <div class="product-price">$58.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1486326658981-ed68abe5868e?w=400&h=200&fit=crop"
+                      alt="Alloy Brakes Land 2.5m"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Alloy Brakes Land 2.5m</div>
+                      <div class="product-price">$65.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
+                      alt="Car Spark Plug"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Spark Plug</div>
+                      <div class="product-price">$58.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-item">
+                  <div class="product-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400&h=200&fit=crop"
+                      alt="Car Spark Plug"
+                      class="product-image"
+                    />
+                    <div class="product-info">
+                      <div class="product-title">Car Spark Plug</div>
+                      <div class="product-price">$58.00</div>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <button class="btn-view-details">View Details</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Brand and Newsletter Section -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="footer-brand">
+              <span class="brand-icon">C</span>
+              AUTOCAR X
+            </div>
+            <p class="footer-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              aliquam justo nec ligula eleifend efficitur.
+            </p>
+            <div class="news-form">
+              <h5>Subscribe to our newsletter</h5>
+              <form class="newsletter-form">
+                <input
+                  type="email"
+                  class="form-control newsletter-input"
+                  placeholder="Enter Your E-Mail"
+                  required
+                />
+                <button type="submit" class="btn subscribe-btn">
+                  Subscribe Now
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5>Quick Links</h5>
+              <ul class="footer-links">
+                <li><a href="./aboutus.html">About Us</a></li>
+                <li><a href="./contactus.html">Contact Us</a></li>
+                <li><a href="./parts.html">Spare Parts</a></li>
+                <li><a href="./service.html">Services</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Address Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5>Address</h5>
+              <div class="contact-info">
+                <p>(323) 661-3953</p>
+                <p>3506 Madera Ave</p>
+                <p>Los Angeles, California(CA), 90039</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="footer-section">
+              <h5>Stay Connected</h5>
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <img src="./assets/homepage/Facebook.png" alt="" />
+                </a>
+                <a href="#" class="social-link">
+                  <img src="./assets/homepage/Instagram.png" alt="" />
+                </a>
+                <a href="#" class="social-link">
+                  <img src="./assets/homepage/Youtube.png" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="mb-0">© 2025 Autocar X. All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/parts.js"></script>
+  </body>
+</html>

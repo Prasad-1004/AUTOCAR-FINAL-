@@ -1,3 +1,26 @@
+function openSidebar() {
+  document.getElementById("sidebar").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeSidebar() {
+  document.getElementById("sidebar").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+  document.body.style.overflow = "auto";
+}
+
+// Close sidebar when window is resized to large screen
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 992) {
+    closeSidebar();
+  }
+});
+
+// New one
+
+
+
 // Handle location selection
 document.addEventListener("DOMContentLoaded", function () {
   const locationCards = document.querySelectorAll(".location-card");
@@ -205,6 +228,11 @@ mobileMenu.addEventListener("touchend", function (e) {
     mobileMenu.classList.remove("active");
   }
 });
+
+
+
+
+
 
 
 
