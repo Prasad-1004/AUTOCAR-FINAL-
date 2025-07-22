@@ -19,8 +19,6 @@ window.addEventListener("resize", function () {
 
 // New one
 
-
-
 // Handle location selection
 document.addEventListener("DOMContentLoaded", function () {
   const locationCards = document.querySelectorAll(".location-card");
@@ -229,137 +227,150 @@ mobileMenu.addEventListener("touchend", function (e) {
   }
 });
 
-
-
 // Sidebar & Main Section
 
+// Initialize price slider
+document.addEventListener("DOMContentLoaded", function () {
+  // Desktop slider
+  const priceSlider = document.getElementById("price-slider");
+  const minPriceInput = document.getElementById("minPrice");
+  const maxPriceInput = document.getElementById("maxPrice");
 
-function toggleSidebar() {
-    const sidebar = document.getElementById('mobileSidebar');
-    const overlay = document.getElementById('overlay');
-    const body = document.body;
+  noUiSlider.create(priceSlider, {
+    start: [0, 300],
+    connect: true,
+    range: {
+      min: 0,
+      max: 300,
+    },
+    step: 10,
+  });
 
-    sidebar.classList.toggle('show');
-    overlay.classList.toggle('show');
-
-    if (sidebar.classList.contains('show')) {
-      body.style.overflow = 'hidden';
+  priceSlider.noUiSlider.on("update", function (values, handle) {
+    const value = values[handle];
+    if (handle) {
+      maxPriceInput.value = Math.round(value);
     } else {
-      body.style.overflow = '';
+      minPriceInput.value = Math.round(value);
     }
-  }
+  });
 
-  function toggleBrands() {
-    const brandList = document.getElementById('brand-list') || document.getElementById('brand-list-mobile');
-    const items = ['BrandX', 'BrandY', 'BrandZ'];
-    items.forEach(name => {
-      const div = document.createElement('div');
-      div.innerHTML = `<input type="checkbox"> ${name}`;
-      brandList.appendChild(div);
+  minPriceInput.addEventListener("change", function () {
+    priceSlider.noUiSlider.set([this.value, null]);
+  });
+
+  maxPriceInput.addEventListener("change", function () {
+    priceSlider.noUiSlider.set([null, this.value]);
+  });
+
+  // Mobile slider
+  const mobilePriceSlider = document.getElementById("mobile-price-slider");
+  const mobileMinPriceInput = document.getElementById("mobileMinPrice");
+  const mobileMaxPriceInput = document.getElementById("mobileMaxPrice");
+
+  noUiSlider.create(mobilePriceSlider, {
+    start: [0, 300],
+    connect: true,
+    range: {
+      min: 0,
+      max: 300,
+    },
+    step: 10,
+  });
+
+  mobilePriceSlider.noUiSlider.on("update", function (values, handle) {
+    const value = values[handle];
+    if (handle) {
+      mobileMaxPriceInput.value = Math.round(value);
+    } else {
+      mobileMinPriceInput.value = Math.round(value);
+    }
+  });
+
+  mobileMinPriceInput.addEventListener("change", function () {
+    mobilePriceSlider.noUiSlider.set([this.value, null]);
+  });
+
+  mobileMaxPriceInput.addEventListener("change", function () {
+    mobilePriceSlider.noUiSlider.set([null, this.value]);
+  });
+
+  // Mobile sidebar toggle
+  const filterToggle = document.getElementById("filterToggle");
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const sidebarOverlay = document.getElementById("sidebarOverlay");
+  const closeSidebar = document.getElementById("closeSidebar");
+
+  filterToggle.addEventListener("click", function () {
+    mobileSidebar.classList.add("show");
+    sidebarOverlay.classList.add("show");
+  });
+
+  closeSidebar.addEventListener("click", function () {
+    mobileSidebar.classList.remove("show");
+    sidebarOverlay.classList.remove("show");
+  });
+
+  sidebarOverlay.addEventListener("click", function () {
+    mobileSidebar.classList.remove("show");
+    this.classList.remove("show");
+  });
+
+  // Add to cart functionality
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const productTitle =
+        this.parentElement.querySelector(".product-title").textContent;
+      const productPrice =
+        this.parentElement.querySelector(".product-price").textContent;
+      alert(`Added to cart: ${productTitle} - ${productPrice}`);
     });
-  }
+  });
 
-  function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    const arrow = document.getElementById(sectionId + '-arrow');
-    
-    if (content.classList.contains('collapsed')) {
-      content.classList.remove('collapsed');
-      arrow.classList.remove('rotated');
-    } else {
-      content.classList.add('collapsed');
-      arrow.classList.add('rotated');
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // View details functionality
+  const viewDetailsButtons = document.querySelectorAll(".view-details");
+  viewDetailsButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const productTitle =
+        this.parentElement.querySelector(".product-title").textContent;
+      alert(`Viewing details for: ${productTitle}`);
+    });
+  });
+});
 
 // Testimonial Section
 
+const swiper = new Swiper(".brand-slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 1500,
+    disableOnInteraction: false,
+  },
+  speed: 1000,
+  breakpoints: {
+    0: { slidesPerView: 2 },
+    576: { slidesPerView: 3 },
+    768: { slidesPerView: 4 },
+    992: { slidesPerView: 5 },
+    1200: { slidesPerView: 6 },
+  },
+});
 
+// Pause on hover
+document.querySelectorAll(".brand-slide").forEach((slide) => {
+  slide.addEventListener("mouseenter", () => swiper.autoplay.stop());
+  slide.addEventListener("mouseleave", () => swiper.autoplay.start());
+});
 
- const swiper = new Swiper('.brand-slider', {
-    slidesPerView: "auto",
-    spaceBetween: 20,
-    loop: true,
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-    },
-    speed: 1000,
-    breakpoints: {
-      0: { slidesPerView: 2 },
-      576: { slidesPerView: 3 },
-      768: { slidesPerView: 4 },
-      992: { slidesPerView: 5 },
-      1200: { slidesPerView: 6 }
-    }
+// Optional: Pause on touch (mobile tap)
+document.querySelectorAll(".brand-slide").forEach((slide) => {
+  slide.addEventListener("touchstart", () => swiper.autoplay.stop(), {
+    passive: true,
   });
-
-  // Pause on hover
-  document.querySelectorAll('.brand-slide').forEach(slide => {
-    slide.addEventListener('mouseenter', () => swiper.autoplay.stop());
-    slide.addEventListener('mouseleave', () => swiper.autoplay.start());
+  slide.addEventListener("touchend", () => swiper.autoplay.start(), {
+    passive: true,
   });
-
-  // Optional: Pause on touch (mobile tap)
-  document.querySelectorAll('.brand-slide').forEach(slide => {
-    slide.addEventListener('touchstart', () => swiper.autoplay.stop(), { passive: true });
-    slide.addEventListener('touchend', () => swiper.autoplay.start(), { passive: true });
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});

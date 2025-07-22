@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>AutoCar X</title>
+    <link rel="icon" type="image/png" href="./assets/favicon.PNG" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
@@ -474,95 +474,18 @@
 
     <!-- Products Section -->
 
-    <section class="product-section">
-      <div class="container">
-        <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+    <section class="products-section">
+      <div class="container py-4">
 
         <!-- Header Section -->
         <div class="header-section">
-          <div class="container-fluid">
+          <div class="container-fluid heading">
             <h4>Products</h4>
             <h3>Products from our store</h3>
           </div>
         </div>
 
-        <!-- Filter Button -->
-        <div class="container mt-3">
-          <button
-            class="btn btn-outline-dark filter-toggle"
-            onclick="toggleSidebar()"
-          >
-            ☰ Filter
-          </button>
-        </div>
-
-        <!-- Sidebar Offcanvas -->
-        <div class="sidebar-wrapper" id="mobileSidebar">
-          <h5 class="d-flex justify-content-between align-items-center">
-            Filters
-            <button class="btn-close" onclick="toggleSidebar()">&times;</button>
-          </h5>
-          <hr />
-          <div class="mb-3">
-            <div
-              class="collapsible-header"
-              onclick="toggleSection('categories-mobile')"
-            >
-              <strong>Categories</strong>
-              <span class="arrow" id="categories-mobile-arrow">▼</span>
-            </div>
-            <div class="collapsible-content" id="categories-mobile">
-              <ul class="list-unstyled">
-                <li>Vehicle Mats</li>
-                <li>Tyre and Wheel</li>
-                <li>Car Dashboard Acc...</li>
-                <li>Vehicle Cleaners</li>
-                <li>Vehicle Styling</li>
-                <li><a href="#">Show 7 more</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="mb-3">
-            <strong>Price</strong>
-            <select class="form-select my-2">
-              <option>Min</option>
-            </select>
-            <select class="form-select">
-              <option>To $20</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <div
-              class="collapsible-header"
-              onclick="toggleSection('brand-mobile')"
-            >
-              <strong>Brand</strong>
-              <span class="arrow" id="brand-mobile-arrow">▼</span>
-            </div>
-            <div class="collapsible-content" id="brand-mobile">
-              <input
-                type="text"
-                class="form-control my-2"
-                placeholder="Search Brand"
-              />
-              <div id="brand-list-mobile">
-                <div><input type="checkbox" /> Ronish</div>
-                <div><input type="checkbox" /> Otoroys</div>
-                <div><input type="checkbox" /> Monolive</div>
-                <div><input type="checkbox" /> Autograph</div>
-                <div><input type="checkbox" /> Agora</div>
-              </div>
-              <button class="btn btn-link mt-1" onclick="toggleBrands()">
-                View More
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
-
-        <div class="container-fluid my-4">
-          <!-- Search Filters -->
+        <!-- Search Filters -->
           <div class="search-filters">
             <div>
               <select class="form-select">
@@ -584,255 +507,750 @@
             </div>
           </div>
 
-          <!-- Main Layout -->
-          <div class="main-layout">
-            <!-- Sidebar for Large Screens -->
-            <div class="sidebar-column">
-              <div class="sidebar">
-                <h5>Filters</h5>
-                <hr />
-                <div class="mb-3">
-                  <div
-                    class="collapsible-header"
-                    onclick="toggleSection('categories-desktop')"
-                  >
-                    <strong>Categories</strong>
-                    <span class="arrow" id="categories-desktop-arrow">▼</span>
-                  </div>
-                  <div class="collapsible-content" id="categories-desktop">
-                    <ul class="list-unstyled">
-                      <li>Vehicle Mats</li>
-                      <li>Tyre and Wheel</li>
-                      <li>Car Dashboard Acc...</li>
-                      <li>Vehicle Cleaners</li>
-                      <li>Vehicle Styling</li>
-                      <li><a href="#">Show 7 more</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <strong>Price</strong>
-                  <select class="form-select my-2">
-                    <option>Min</option>
-                  </select>
-                  <select class="form-select">
-                    <option>To $20</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <div
-                    class="collapsible-header"
-                    onclick="toggleSection('brand-desktop')"
-                  >
-                    <strong>Brand</strong>
-                    <span class="arrow" id="brand-desktop-arrow">▼</span>
-                  </div>
-                  <div class="collapsible-content" id="brand-desktop">
-                    <input
-                      type="text"
-                      class="form-control my-2"
-                      placeholder="Search Brand"
-                    />
-                    <div id="brand-list">
-                      <div><input type="checkbox" /> Ronish</div>
-                      <div><input type="checkbox" /> Otoroys</div>
-                      <div><input type="checkbox" /> Monolive</div>
-                      <div><input type="checkbox" /> Autograph</div>
-                      <div><input type="checkbox" /> Agora</div>
+
+
+
+        <button class="btn btn-danger filter-toggle" id="filterToggle">
+          <i class="fas fa-filter"></i> Filters
+        </button>
+
+
+        <div class="main-layout">
+          <!-- Filters Column -->
+          <div class="sidebar-column">
+            <div class="sidebar">
+              <h2 class="filter-title">Filters</h2>
+
+              <!-- Categories Filter -->
+              <div class="filter-section">
+                <h5 class="filter-title">Categories</h5>
+                <div class="filter-item">
+                  <div class="accordion" id="categoriesAccordion">
+                    <div class="accordion-item border-0">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button
+                          class="accordion-button bg-light"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          Automotive Accessories
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#categoriesAccordion"
+                      >
+                        <div class="accordion-body p-0 pt-2">
+                          <ul class="list-unstyled">
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Vehicle Mots</a
+                              >
+                            </li>
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Type and Vines</a
+                              >
+                            </li>
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Car Distribution &/etc...</a
+                              >
+                            </li>
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Vehicle Closures</a
+                              >
+                            </li>
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Vehicle Styling</a
+                              >
+                            </li>
+                            <li class="mb-2">
+                              <a href="#" class="text-decoration-none text-dark"
+                                >Bikeer / more</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <button class="btn btn-link mt-1" onclick="toggleBrands()">
-                      View More
-                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Price Filter -->
+              <div class="filter-section">
+                <h5 class="filter-title">Price</h5>
+                <div id="price-slider" class="price-slider"></div>
+                <div class="price-inputs">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="minPrice"
+                    placeholder="Min"
+                    value="0"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="maxPrice"
+                    placeholder="Max"
+                    value="300"
+                  />
+                </div>
+              </div>
+
+              <!-- Brand Filter -->
+              <div class="filter-section">
+                <h5 class="filter-title">Brand</h5>
+                <div class="filter-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Switch Direct"
+                      id="brand1"
+                    />
+                    <label class="form-check-label" for="brand1">
+                      Switch Direct
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Resk"
+                      id="brand2"
+                    />
+                    <label class="form-check-label" for="brand2"> Resk </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Overry"
+                      id="brand3"
+                    />
+                    <label class="form-check-label" for="brand3">
+                      Overry
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Monolive"
+                      id="brand4"
+                    />
+                    <label class="form-check-label" for="brand4">
+                      Monolive
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Antagon"
+                      id="brand5"
+                    />
+                    <label class="form-check-label" for="brand5">
+                      Antagon
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Agero"
+                      id="brand6"
+                    />
+                    <label class="form-check-label" for="brand6"> Agero </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="View Note"
+                      id="brand7"
+                    />
+                    <label class="form-check-label" for="brand7">
+                      View Note
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Customer Ratings Filter -->
+              <div class="filter-section">
+                <h5 class="filter-title">Customer Ratings</h5>
+                <div class="filter-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="4"
+                      id="rating4"
+                    />
+                    <label class="form-check-label" for="rating4">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      & above
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="3"
+                      id="rating3"
+                    />
+                    <label class="form-check-label" for="rating3">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      & above
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="2"
+                      id="rating2"
+                    />
+                    <label class="form-check-label" for="rating2">
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      & above
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="1"
+                      id="rating1"
+                    />
+                    <label class="form-check-label" for="rating1">
+                      <i class="fas fa-star text-warning"></i>
+                      & above
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Discount Filter -->
+              <div class="filter-section">
+                <h5 class="filter-title">Discount</h5>
+                <div class="filter-item">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="50"
+                      id="discount50"
+                    />
+                    <label class="form-check-label" for="discount50">
+                      50% or more
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="40"
+                      id="discount40"
+                    />
+                    <label class="form-check-label" for="discount40">
+                      40% or more
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="30"
+                      id="discount30"
+                    />
+                    <label class="form-check-label" for="discount30">
+                      30% or more
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="20"
+                      id="discount20"
+                    />
+                    <label class="form-check-label" for="discount20">
+                      20% or more
+                    </label>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Product Grid -->
-            <div class="content-column">
-              <div class="products-container">
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (10).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">27 CM Car Wheels</h6>
-                    <p><strong>$230.00</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+          <!-- Products Column -->
+          <div class="content-column">
+            <div class="products-container">
+              <!-- Product 1 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/unnamed-2-512x313.png" alt="" />
                   </div>
+                  <div class="product-title">27 CM Car Wheels</div>
+                  <div class="product-price">$230.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
                 </div>
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (11).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">Car Steering Black</h6>
-                    <p><strong>$95.00</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (4).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">Dashboard Camera</h6>
-                    <p><strong>$149.99</strong></p>
-                    <p class="rating">★★★★☆</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (6).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">Floor Mats Set</h6>
-                    <p><strong>$79.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (7).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">Car Polish Kit</h6>
-                    <p><strong>$34.50</strong></p>
-                    <p class="rating">★★★★☆</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (8).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
-                  </div>
-                </div>
+              </div>
 
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/image (9).png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+              <!-- Product 2 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/pexels-photo-3689534.png" alt="" />
                   </div>
+                  <div class="product-title">Car Steering Black</div>
+                  <div class="product-price">$95.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
                 </div>
+              </div>
 
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/mechanic-changing-brake-discs-car-service-8869.png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+              <!-- Product 3 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/pexels-photo-195635.png" alt="" />
                   </div>
+                  <div class="product-title">Car Steering Black</div>
+                  <div class="product-price">$95.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
                 </div>
+              </div>
 
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/pexels-photo-195635.png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+              <!-- Product 4 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/mechanic-changing-brake-discs-car-service-8869.png" alt="" />
                   </div>
+                  <div class="product-title">Car Spark Plugs</div>
+                  <div class="product-price">$58.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
                 </div>
+              </div>
 
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/pexels-photo-3689534.png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+              <!-- Product 5 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (9).png" alt="" />
                   </div>
+                  <div class="product-title">Car Spark Plugs</div>
+                  <div class="product-price">$58.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
                 </div>
+              </div>
 
-                <div class="product-item">
-                  <div class="product-card">
-                    <img
-                      src="./assets/parts/unnamed-2-512x313.png"
-                      class="product-image"
-                      alt=""
-                    />
-                    <h6 class="mt-2">LED Headlights</h6>
-                    <p><strong>$189.99</strong></p>
-                    <p class="rating">★★★★★</p>
-                    <button class="btn add-to-cart w-100 mb-1">
-                      Add to Cart
-                    </button>
-                    <button class="btn view-details w-100">View Details</button>
+              <!-- Product 6 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (8).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Silver Disk Break</div>
+                  <div class="product-price">$140.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 7 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (7).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 8 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (6).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 9 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (11).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 10 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (4).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 11 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/image (10).png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              <!-- Product 12 -->
+              <div class="product-item">
+                <div class="product-card">
+                  <div class="photo">
+                    <img src="./assets/parts/pexels-photo-3689534.png" alt="" />
+                  </div>
+                  <div class="product-title">Alloy Oil Filter</div>
+                  <div class="product-price">$56.00</div>
+                  <button class="btn add-to-cart">Add to Cart</button>
+                  <button class="btn view-details">View Details</button>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Sidebar Overlay -->
+      <div class="overlay" id="sidebarOverlay"></div>
+
+      <!-- Mobile Sidebar -->
+      <div class="sidebar-wrapper" id="mobileSidebar">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3>Filters</h3>
+          <button class="btn-close" id="closeSidebar"></button>
+        </div>
+
+        <!-- Mobile filter content would be the same as desktop sidebar content -->
+        <!-- Categories Filter -->
+        <div class="filter-section">
+          <h5 class="filter-title">Categories</h5>
+          <div class="filter-item">
+            <div class="accordion" id="mobileCategoriesAccordion">
+              <div class="accordion-item border-0">
+                <h2 class="accordion-header" id="mobileHeadingOne">
+                  <button
+                    class="accordion-button bg-light"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileCollapseOne"
+                    aria-expanded="true"
+                    aria-controls="mobileCollapseOne"
+                  >
+                    Automotive Accessories
+                  </button>
+                </h2>
+                <div
+                  id="mobileCollapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="mobileHeadingOne"
+                  data-bs-parent="#mobileCategoriesAccordion"
+                >
+                  <div class="accordion-body p-0 pt-2">
+                    <ul class="list-unstyled">
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Vehicle Mots</a
+                        >
+                      </li>
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Type and Vines</a
+                        >
+                      </li>
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Car Distribution &/etc...</a
+                        >
+                      </li>
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Vehicle Closures</a
+                        >
+                      </li>
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Vehicle Styling</a
+                        >
+                      </li>
+                      <li class="mb-2">
+                        <a href="#" class="text-decoration-none text-dark"
+                          >Bikeer / more</a
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Filter -->
+        <div class="filter-section">
+          <h5 class="filter-title">Price</h5>
+          <div id="mobile-price-slider" class="price-slider"></div>
+          <div class="price-inputs">
+            <input
+              type="text"
+              class="form-control"
+              id="mobileMinPrice"
+              placeholder="Min"
+              value="0"
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="mobileMaxPrice"
+              placeholder="Max"
+              value="300"
+            />
+          </div>
+        </div>
+
+        <!-- Brand Filter -->
+        <div class="filter-section">
+          <h5 class="filter-title">Brand</h5>
+          <div class="filter-item">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Switch Direct"
+                id="mobileBrand1"
+              />
+              <label class="form-check-label" for="mobileBrand1">
+                Switch Direct
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Resk"
+                id="mobileBrand2"
+              />
+              <label class="form-check-label" for="mobileBrand2"> Resk </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Overry"
+                id="mobileBrand3"
+              />
+              <label class="form-check-label" for="mobileBrand3">
+                Overry
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Monolive"
+                id="mobileBrand4"
+              />
+              <label class="form-check-label" for="mobileBrand4">
+                Monolive
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Antagon"
+                id="mobileBrand5"
+              />
+              <label class="form-check-label" for="mobileBrand5">
+                Antagon
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="Agero"
+                id="mobileBrand6"
+              />
+              <label class="form-check-label" for="mobileBrand6"> Agero </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="View Note"
+                id="mobileBrand7"
+              />
+              <label class="form-check-label" for="mobileBrand7">
+                View Note
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Ratings Filter -->
+        <div class="filter-section">
+          <h5 class="filter-title">Customer Ratings</h5>
+          <div class="filter-item">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="4"
+                id="mobileRating4"
+              />
+              <label class="form-check-label" for="mobileRating4">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                & above
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="3"
+                id="mobileRating3"
+              />
+              <label class="form-check-label" for="mobileRating3">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                & above
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="2"
+                id="mobileRating2"
+              />
+              <label class="form-check-label" for="mobileRating2">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                & above
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="1"
+                id="mobileRating1"
+              />
+              <label class="form-check-label" for="mobileRating1">
+                <i class="fas fa-star text-warning"></i>
+                & above
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Discount Filter -->
+        <div class="filter-section">
+          <h5 class="filter-title">Discount</h5>
+          <div class="filter-item">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="50"
+                id="mobileDiscount50"
+              />
+              <label class="form-check-label" for="mobileDiscount50">
+                50% or more
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="40"
+                id="mobileDiscount40"
+              />
+              <label class="form-check-label" for="mobileDiscount40">
+                40% or more
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="30"
+                id="mobileDiscount30"
+              />
+              <label class="form-check-label" for="mobileDiscount30">
+                30% or more
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="20"
+                id="mobileDiscount20"
+              />
+              <label class="form-check-label" for="mobileDiscount20">
+                20% or more
+              </label>
             </div>
           </div>
         </div>
@@ -984,8 +1402,14 @@
 
     <!-- SwiperJS Script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- noUiSlider for price range -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css"
+    />
     <script src="./js/parts.js"></script>
   </body>
 </html>
