@@ -3,6 +3,11 @@
   src: url("../font/ClarityCity-Light.otf");
 }
 
+@font-face {
+  font-family: "clary";
+  src: url("../font/ClarityCity-ExtraBold.otf");
+}
+
 :root {
   --primary-red: #dc3545;
   --dark-bg: #1a1a1a;
@@ -510,6 +515,8 @@ body {
   border-bottom: none;
   padding: 30px 30px 20px;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-title {
@@ -741,6 +748,7 @@ body {
   line-height: 1.1;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "clary";
 }
 
 .content p {
@@ -918,9 +926,11 @@ body {
   color: #dc3545;
   font-weight: 600;
   font-size: 14px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 1px;
   margin-bottom: 10px;
+  font-family: "clary";
+  text-align: center;
 }
 
 .section-heading {
@@ -930,6 +940,9 @@ body {
   line-height: 1.2;
   max-width: 500px;
   margin: 0 auto;
+  font-family: "clary";
+  text-transform: capitalize;
+  text-align: center;
 }
 
 .card-row {
@@ -1482,6 +1495,7 @@ body {
   margin-bottom: 10px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: inline-block;
+  font-family: "clary";
 }
 
 .product-card:hover .product-price {
