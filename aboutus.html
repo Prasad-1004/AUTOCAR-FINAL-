@@ -535,9 +535,9 @@
 
     <section class="achievements-section">
       <div class="container">
-        <div class="sectionS-title">
+        <div class="section-title car">
           <div class="section-subtitle">Achievements</div>
-          <h2 class="section-main-title">Our Track Record Speaks for Itself</h2>
+          <h2 class="section-heading">Our Track Record Speaks for Itself</h2>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -546,8 +546,10 @@
               <div class="achievement-icon icon-calendar">
                 <img src="./assets/homepage/line-md_calendar.png" alt="" />
               </div>
-              <div class="achievement-number">10+</div>
-              <h3 class="achievement-title">Years of Excellence</h3>
+              <div class="ach">
+                <div class="achievement-number">10+</div>
+                <h3 class="achievement-title">Years of Excellence</h3>
+              </div>
               <p class="achievement-description">
                 Lorem ipsum dolor sit amet consectetur. Volutpat bibendum cras
                 libero magna nibh cras. Nec morbi hac vulputate amet tempus.
@@ -560,8 +562,10 @@
               <div class="achievement-icon icon-smile">
                 <img src="./assets/homepage/wpf_happy.png" alt="" />
               </div>
-              <div class="achievement-number">50k+</div>
-              <h3 class="achievement-title">Happy Clients</h3>
+              <div class="ach">
+                <div class="achievement-number">50k+</div>
+                <h3 class="achievement-title">Happy Clients</h3>
+              </div>
               <p class="achievement-description">
                 Lorem ipsum dolor sit amet consectetur. Volutpat bibendum cras
                 libero magna nibh cras. Nec morbi hac vulputate amet tempus.
@@ -574,8 +578,10 @@
               <div class="achievement-icon icon-star">
                 <img src="./assets/homepage/ic_outline-star.png" alt="" />
               </div>
-              <div class="achievement-number">99%</div>
-              <h3 class="achievement-title">Customer Satisfaction</h3>
+              <div class="ach">
+                <div class="achievement-number">99%</div>
+                <h3 class="achievement-title">Customer Satisfaction</h3>
+              </div>
               <p class="achievement-description">
                 Lorem ipsum dolor sit amet consectetur. Volutpat bibendum cras
                 libero magna nibh cras. Nec morbi hac vulputate amet tempus.
@@ -646,7 +652,7 @@
 
     <section class="locations-section">
       <div class="container">
-        <h2 class="section-title">Our Locations</h2>
+        <h2 class="section-title loc">Our Locations</h2>
         <div class="locations-container">
           <div class="location-card">
             <img
@@ -704,14 +710,14 @@
           <h2 class="section-heading">What our clients say about us</h2>
         </div>
 
-        <div class="swiper testimonials-swiper">
-          <div class="swiper-wrapper">
+        <div class="swiper testimonials-swiper d-flex">
+          <div class="swiper-wrapper d-flex flex-row">
             <!-- Testimonial Card 1 -->
             <div class="swiper-slide">
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+                    src="./assets/homepage/image (16).png"
                     alt="Vanessa Taylor"
                     class="client-avatar"
                   />
@@ -724,11 +730,12 @@
                   </div>
                 </div>
                 <div class="star-rating">
+                  <!-- <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i> -->
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -751,11 +758,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -778,11 +781,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -805,11 +804,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -832,11 +827,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -858,38 +849,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-
-            <!-- Additional testimonials for better loop on large screens -->
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div>
-                  <img
-                    src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&h=150&fit=crop&crop=face"
-                    alt="Jessica Miller"
-                    class="client-avatar"
-                  />
-                  <div class="client-name">Jessica Miller</div>
-                  <div class="client-role">Rider</div>
-                  <div class="testimonial-text">
-                    Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
-                    velit vitae eget aliquam risus phasellus risus. Morbi eget
-                    semper.
-                  </div>
-                </div>
-                <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -898,11 +858,11 @@
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face"
-                    alt="Robert Wilson"
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
                     class="client-avatar"
                   />
-                  <div class="client-name">Robert Wilson</div>
+                  <div class="client-name">Michael Brown</div>
                   <div class="client-role">Rider</div>
                   <div class="testimonial-text">
                     Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
@@ -911,11 +871,7 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
@@ -924,11 +880,11 @@
               <div class="testimonial-card">
                 <div>
                   <img
-                    src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=150&h=150&fit=crop&crop=face"
-                    alt="Amanda Davis"
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
                     class="client-avatar"
                   />
-                  <div class="client-name">Amanda Davis</div>
+                  <div class="client-name">Michael Brown</div>
                   <div class="client-role">Rider</div>
                   <div class="testimonial-text">
                     Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
@@ -937,22 +893,58 @@
                   </div>
                 </div>
                 <div class="star-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <img src="./assets/homepage/Group 64.png" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
+                    class="client-avatar"
+                  />
+                  <div class="client-name">Michael Brown</div>
+                  <div class="client-role">Rider</div>
+                  <div class="testimonial-text">
+                    Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
+                    velit vitae eget aliquam risus phasellus risus. Morbi eget
+                    semper.
+                  </div>
+                </div>
+                <div class="star-rating">
+                  <img src="./assets/homepage/Group 64.png" alt="" />
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face"
+                    alt="Michael Brown"
+                    class="client-avatar"
+                  />
+                  <div class="client-name">Michael Brown</div>
+                  <div class="client-role">Rider</div>
+                  <div class="testimonial-text">
+                    Lorem ipsum dolor sit amet consectetur. Quam aliquam egestas
+                    velit vitae eget aliquam risus phasellus risus. Morbi eget
+                    semper.
+                  </div>
+                </div>
+                <div class="star-rating">
+                  <img src="./assets/homepage/Group 64.png" alt="" />
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Navigation buttons -->
-          <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
-
           <!-- Pagination -->
-          <div class="swiper-pagination"></div>
+          <!-- <div class="swiper-pagination"></div> -->
         </div>
       </div>
     </section>

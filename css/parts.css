@@ -270,7 +270,7 @@ body {
 
 /* Navigation Styles */
 .custom-nav {
-  padding: 15px 0;
+  padding: 28.5px 0;
 }
 
 .nav-logo {
@@ -809,6 +809,13 @@ body {
   min-height: 400px;
 }
 
+.pro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .photo {
   max-width: 290px;
   height: 190px;
@@ -978,6 +985,7 @@ body {
   font-weight: 700;
   font-size: 1.2rem;
   margin: 10px 0;
+  font-family: 'clary';
 }
 
 /* Responsive design */

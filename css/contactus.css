@@ -272,7 +272,7 @@ body {
 
 /* Navigation Styles */
 .custom-nav {
-  padding: 15px 0;
+  padding: 28.5px 0;
 }
 
 .nav-logo {
@@ -780,6 +780,11 @@ body {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 50px;
+}
+
+.mail {
+  display: flex;
+  align-items: end;
 }
 
 .form-container {
