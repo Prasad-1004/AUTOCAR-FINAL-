@@ -485,26 +485,42 @@
                 facilisi cursus aliquam a ac maecenas purus amet sapien id
                 suspendisse porttitor tempor at donec massa nibh massa urna et.
               </p>
-              <button class="ctas-button">Schedule an appointment</button>
+              <a
+                href="#"
+                class="ctas-button"
+                style="display: inline-block; text-decoration: none"
+                >Schedule an appointment</a
+              >
             </div>
           </div>
 
           <div class="col4">
-            <div class="booking-form">
+            <form id="bookingForm" class="booking-form">
               <div class="form-section">
                 <h3>Personal Details</h3>
                 <div class="form-row">
                   <div class="form-group">
-                    <input type="text" placeholder="Full Name" required />
+                    <input
+                      type="text"
+                      name="fullname"
+                      placeholder="Full Name"
+                      required
+                    />
                   </div>
                   <div class="form-group">
-                    <input type="tel" placeholder="Phone Number" required />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email Address ( Optional )"
                     />
                   </div>
@@ -515,10 +531,15 @@
                 <h3>Booking Details</h3>
                 <div class="form-row">
                   <div class="form-group">
-                    <input type="text" placeholder="Car Number" required />
+                    <input
+                      type="text"
+                      name="car-number"
+                      placeholder="Car Number"
+                      required
+                    />
                   </div>
                   <div class="form-group">
-                    <select required>
+                    <select name="service" required>
                       <option value="">Service Details</option>
                       <option value="oil-change">Oil Change</option>
                       <option value="brake-service">Brake Service</option>
@@ -530,7 +551,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <select required>
+                    <select name="time" required>
                       <option value="">Date / Time</option>
                       <option value="morning">
                         Morning (9:00 AM - 12:00 PM)
@@ -544,7 +565,7 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <select required>
+                    <select name="location" required>
                       <option value="">Location</option>
                       <option value="downtown">Downtown Branch</option>
                       <option value="northside">Northside Branch</option>
@@ -555,8 +576,20 @@
                 </div>
               </div>
 
-              <button class="book-button">Book Appointment</button>
-            </div>
+              <div class="book-button">
+                <a
+                  href="#"
+                  onclick="document.getElementById('bookingForm').submit();"
+                  style="
+                    display: block;
+                    text-align: center;
+                    color: white;
+                    text-decoration: none;
+                  "
+                  >Book Appointment</a
+                >
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -734,10 +767,19 @@
         <div class="row">
           <div class="col-12">
             <div class="action-buttons">
-              <button class="btn btn-schedule">Schedule an Appointment</button>
-              <button class="btn btn-browse">
-                <a href="./service.html">Browse Service</a>
-              </button>
+              <a
+                href="#"
+                class="btn btn-schedule"
+                style="display: inline-block; text-decoration: none"
+                >Schedule an appointment</a
+              >
+
+              <a
+                href="#"
+                class="btn btn-browse"
+                style="display: inline-block; text-decoration: none"
+                >Schedule an appointment</a
+              >
             </div>
           </div>
         </div>
@@ -812,7 +854,12 @@
                 </div>
               </div>
 
-              <button class="btn cta-button">Schedule an Appointment</button>
+              <a
+                href="#"
+                class="ctas-button"
+                style="display: inline-block; text-decoration: none"
+                >Schedule an appointment</a
+              >
             </div>
           </div>
         </div>
@@ -851,8 +898,19 @@
                   </div>
                 </div>
                 <div class="product-buttons">
-                  <button class="btn btn-add-cart">Add to Cart</button>
-                  <button class="btn btn-view-details">View Details</button>
+                  <a
+                    href="#"
+                    class="btn btn-add-cart"
+                    style="display: inline-block; text-decoration: none"
+                    >Add to Cart</a
+                  >
+
+                  <a
+                    href="#"
+                    class="btn btn-view-details"
+                    style="display: inline-block; text-decoration: none"
+                    >View Details</a
+                  >
                 </div>
               </div>
             </div>
@@ -880,8 +938,19 @@
                   </div>
                 </div>
                 <div class="product-buttons">
-                  <button class="btn btn-add-cart">Add to Cart</button>
-                  <button class="btn btn-view-details">View Details</button>
+                  <a
+                    href="#"
+                    class="btn btn-add-cart"
+                    style="display: inline-block; text-decoration: none"
+                    >Add to Cart</a
+                  >
+
+                  <a
+                    href="#"
+                    class="btn btn-view-details"
+                    style="display: inline-block; text-decoration: none"
+                    >View Details</a
+                  >
                 </div>
               </div>
             </div>
@@ -909,8 +978,19 @@
                   </div>
                 </div>
                 <div class="product-buttons">
-                  <button class="btn btn-add-cart">Add to Cart</button>
-                  <button class="btn btn-view-details">View Details</button>
+                  <a
+                    href="#"
+                    class="btn btn-add-cart"
+                    style="display: inline-block; text-decoration: none"
+                    >Add to Cart</a
+                  >
+
+                  <a
+                    href="#"
+                    class="btn btn-view-details"
+                    style="display: inline-block; text-decoration: none"
+                    >View Details</a
+                  >
                 </div>
               </div>
             </div>
@@ -938,8 +1018,19 @@
                   </div>
                 </div>
                 <div class="product-buttons">
-                  <button class="btn btn-add-cart">Add to Cart</button>
-                  <button class="btn btn-view-details">View Details</button>
+                  <a
+                    href="#"
+                    class="btn btn-add-cart"
+                    style="display: inline-block; text-decoration: none"
+                    >Add to Cart</a
+                  >
+
+                  <a
+                    href="#"
+                    class="btn btn-view-details"
+                    style="display: inline-block; text-decoration: none"
+                    >View Details</a
+                  >
                 </div>
               </div>
             </div>
@@ -947,7 +1038,12 @@
         </div>
 
         <div class="checkout-section">
-          <button class="btn btn-checkout">Checkout Our All Product</button>
+          <a
+            href="./parts.html"
+            class="btn btn-checkout"
+            style="display: inline-block; text-decoration: none"
+            >Checkout Our All Product</a
+          >
         </div>
       </div>
     </section>
@@ -1052,7 +1148,16 @@
                 <li><span class="check-icon"></span>Interior Cleaning</li>
               </ul>
 
-              <button class="subscribes-btn">Subscribe Now</button>
+              <a
+                href="#"
+                class="subscribes-btn"
+                style="
+                  display: inline-block;
+                  text-decoration: none;
+                  text-align: center;
+                "
+                >Subscribe Now</a
+              >
             </div>
           </div>
 
@@ -1075,7 +1180,16 @@
                 <li><span class="check-icon"></span>Brake Check</li>
               </ul>
 
-              <button class="subscribes-btn">Subscribe Now</button>
+              <a
+                href="#"
+                class="subscribes-btn"
+                style="
+                  display: inline-block;
+                  text-decoration: none;
+                  text-align: center;
+                "
+                >Subscribe Now</a
+              >
             </div>
           </div>
 
@@ -1097,7 +1211,16 @@
                 <li><span class="check-icon"></span>24x7 Support</li>
               </ul>
 
-              <button class="subscribes-btn">Subscribe Now</button>
+              <a
+                href="#"
+                class="subscribes-btn"
+                style="
+                  display: inline-block;
+                  text-decoration: none;
+                  text-align: center;
+                "
+                >Subscribe Now</a
+              >
             </div>
           </div>
         </div>
@@ -1444,9 +1567,16 @@
                     required
                   />
                 </div>
-                <button type="submit" class="btn subscribe-btn w-100">
-                  Subscribe Now
-                </button>
+                <a
+                  href="#"
+                  class="subscribes-btn"
+                  style="
+                    display: inline-block;
+                    text-decoration: none;
+                    text-align: center;
+                  "
+                  >Subscribe Now</a
+                >
               </form>
             </div>
           </div>
@@ -1478,9 +1608,16 @@
                   placeholder="Enter Your E-Mail"
                   required
                 />
-                <button type="submit" class="btn subscribe-btn">
-                  Subscribe Now
-                </button>
+                <a
+                  href="#"
+                  class="subscribes-btn"
+                  style="
+                    display: inline-block;
+                    text-decoration: none;
+                    text-align: center;
+                  "
+                  >Subscribe Now</a
+                >
               </form>
             </div>
           </div>

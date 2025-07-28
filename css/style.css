@@ -1193,7 +1193,7 @@ select option {
 }
 
 .btn-browse:hover {
-  color: white !important;
+  color: rgb(221, 36, 36) !important;
   border-color: #e91010;
   transform: translateY(-2px);
 }

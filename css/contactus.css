@@ -981,10 +981,10 @@ body {
 }
 
 .address-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: linear-gradient(135deg, #dc3545, #e74c3c);
-  border-radius: 12px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
